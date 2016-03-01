@@ -23,7 +23,7 @@ Unit tests for the Python Facebook Ads API SDK.
 
 How to run:
     python -m facebookads.test.docs
-    python -m facebookads.test.docs -v AdGroupDocsTestCase
+    python -m facebookads.test.docs -v AdDocsTestCase
 '''
 
 import os
@@ -43,7 +43,7 @@ class AdAccountDocsTestCase(DocsTestCase):
         # Create Creatives
         creative1 = self.create_creative(1)
         creative2 = self.create_creative(2)
-        # Create AdGroups
+        # Create Ads
         ad = self.create_ad(1, adset, creative1)
         self.create_ad(2, adset, creative2)
         DocsDataStore.set('ad_id', ad.get_id())

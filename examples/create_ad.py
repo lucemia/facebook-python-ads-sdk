@@ -30,7 +30,7 @@ from facebookads.objects import (
     AdSet,
     AdImage,
     AdCreative,
-    AdGroup,
+    Ad,
     TargetingSpecsField,
 )
 
@@ -125,12 +125,12 @@ if __name__ == '__main__':
     pp.pprint(creative)
 
     ### Get excited, we are finally creating an ad!!!
-    ad = AdGroup(parent_id=my_account.get_id_assured())
+    ad = Ad(parent_id=my_account.get_id_assured())
     ad.update({
-        AdGroup.Field.name: 'Puget Sound impression ad',
-        AdGroup.Field.campaign_id: ad_set.get_id_assured(),
-        AdGroup.Field.creative: {
-            AdGroup.Field.Creative.creative_id: creative.get_id_assured(),
+        Ad.Field.name: 'Puget Sound impression ad',
+        Ad.Field.campaign_id: ad_set.get_id_assured(),
+        Ad.Field.creative: {
+            Ad.Field.Creative.creative_id: creative.get_id_assured(),
         },
     })
     ad.remote_create()

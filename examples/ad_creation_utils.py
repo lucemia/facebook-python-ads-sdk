@@ -21,7 +21,7 @@
 from facebookads.objects import (
     AdCampaign,
     AdSet,
-    AdGroup,
+    Ad,
     AdImage,
     AdCreative,
     TargetingSpecsField,
@@ -127,10 +127,10 @@ def create_multiple_website_clicks_ads(
 
         for title, body, url, image_hash in creative_info_batch:
             # Create the ad
-            ad = AdGroup(parent_id=account.get_id_assured())
-            ad[AdGroup.Field.name] = name + ' Ad'
-            ad[AdGroup.Field.campaign_id] = ad_set.get_id_assured()
-            ad[AdGroup.Field.creative] = {
+            ad = Ad(parent_id=account.get_id_assured())
+            ad[Ad.Field.name] = name + ' Ad'
+            ad[Ad.Field.campaign_id] = ad_set.get_id_assured()
+            ad[Ad.Field.creative] = {
                 AdCreative.Field.title: title,
                 AdCreative.Field.body: body,
                 AdCreative.Field.object_url: url,
